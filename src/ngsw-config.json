@@ -1,0 +1,42 @@
+{
+  "index": "/index.html",
+  "assetGroups": [{
+    "name": "hacker-news-pwa",
+    "installMode": "prefetch",
+    "resources": {
+      "files": [
+        "/favicon.ico",
+        "/index.html"
+      ],
+      "versionedFiles": [
+        "/*.bundle.css",
+        "/*.bundle.js",
+        "/*.chunk.js"
+      ]
+    }
+  }, {
+    "name": "assets",
+    "installMode": "prefetch",
+    "updateMode": "prefetch",
+    "resources": {
+      "files": [
+        "/**/*.html",
+        "/**/*.js",
+        "/assets/**"
+      ]
+    }
+  }],
+    "dataGroups": [{
+    "name": "api-performance",
+    "urls": [
+       "https://newsapi.org/**"
+    ],
+    "cacheConfig": {
+      "strategy": "performance",
+      "maxSize": 1000000,
+      "maxAge": "12h",
+      "timeout": "1m"
+    }
+  }]
+}
+
