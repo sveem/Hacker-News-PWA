@@ -1,0 +1,30 @@
+<mat-toolbar class="navbar">
+  <mat-toolbar-row>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <button mat-button disabled>
+      <img src="../../assets/android-chrome-192x192.png"
+        style="max-width: 36px; min-width: 36px;">
+    </button>
+    <span>Hacker News PWA</span>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+     <span routerLink="/">Home</span>
+  </button>
+      <button mat-menu-item>
+     <span [routerLink]="['/news']">News</span>
+  </button>
+      <button mat-menu-item>
+     <span [routerLink]="['/jobs']">Jobs</span>
+  </button>
+      <button mat-menu-item>
+     <span [routerLink]="['/about']">About</span>
+  </button>
+    </mat-menu>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

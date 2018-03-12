@@ -21,8 +21,13 @@
     "resources": {
       "files": [
         "/**/*.html",
+        "/**/*.css",
         "/**/*.js",
-        "/assets/**"
+        "/assets/**",
+        "/app/**"
+      ],
+      "url": [
+        "https://fonts.googleapis.com/icon?family=Material+Icons"
       ]
     }
   }],
@@ -33,7 +38,7 @@
     ],
     "cacheConfig": {
       "strategy": "performance",
-      "maxSize": 1000000,
+      "maxSize": 1000,
       "maxAge": "12h",
       "timeout": "1m"
     }
