@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http'
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -11,7 +13,6 @@ import { NewsComponent } from './news/news.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { AboutComponent } from './about/about.component';
 import { NewsService } from './news/news.service';
-import { RouterModule, Routes } from '@angular/router';
 
 // Angular Material UI
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,6 +24,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import 'hammerjs';
+
 
 const appRoutes: Routes = [
   { path: '', component: NavbarComponent, children: [
@@ -39,10 +41,11 @@ const appRoutes: Routes = [
     NavbarComponent,
     NewsComponent,
     JobsComponent,
-    AboutComponent
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),

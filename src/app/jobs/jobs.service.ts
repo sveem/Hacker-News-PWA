@@ -1,22 +1,22 @@
 export class JobsService {
   allJobs = [
       {
-        "title": "Data Scientist",
+        "position": "Data Scientist",
         "company": "Microsoft",
         "description": "Some example data"
       },
-          {
-        "title": "Project Manager",
+      {
+        "position": "Project Manager",
         "company": "Oliver Wyman",
         "description": "Some example data"
       },
       {
-        "title": "Lead Developer",
+        "position": "Lead Developer",
         "company": "Google",
         "description": "Some example data"
       },
       {
-        "title": "Scrum Master",
+        "position": "Scrum Master",
         "company": "Amazon",
         "description": "Some example data"
       }

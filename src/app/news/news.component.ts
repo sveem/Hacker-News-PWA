@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { NewsService } from './news.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { NewsService } from './news.service';
 export class NewsComponent implements OnInit {
   title: String = 'Hacker News PWA';
   status: String = 'Current Status: Online'
-  navigator: Boolean = navigator.onLine; //TO-DO: investigate navigator.onLine
+  navigator: Boolean = navigator.onLine;
+  showNews: Boolean = false;
   allNews: any[] = [];
 
   constructor(private newsService: NewsService) { }
@@ -18,29 +20,23 @@ export class NewsComponent implements OnInit {
     if (!navigator.onLine) {
       this.status = 'Current Status: Offline'
     }
-    console.log('Local Storage', localStorage['newsId']);
     if (localStorage['newsId']) {
       this.allNews = JSON.parse(localStorage['newsId']);
-      console.log('allNews = LocalStorage[newsId]', this.allNews);
     }
   }
 
   fetchTopNews() {
     this.newsService.fetchNews()
       .subscribe(news => {
-        console.log('Fresh News', news);
         this.allNews = news['articles'].map(news => {
           news.selected = false;
           return news;
         })
-        console.log('newsIds', this.allNews);
         localStorage['newsId'] = JSON.stringify(this.allNews)
-        console.log('Local Storage', localStorage);
       });
   }
 
   markNews(news: any) {
-    console.log(news.title)
     const title = news.title;
     const newsCopy = this.allNews;
     localStorage['newsId'] = JSON.stringify(newsCopy.map(el => {
@@ -49,5 +45,15 @@ export class NewsComponent implements OnInit {
       }
       return el;
     }))
+  }
+
+  onSubmitNews(form: NgForm) {
+    const formData = form.value;
+    formData['selected'] = false;
+    const fetchedNews = JSON.parse(localStorage['newsId']);
+    fetchedNews.push(formData);
+    localStorage['newsId'] = JSON.stringify(fetchedNews);
+    form.reset();
+    console.log('Local Storage', localStorage['newsId']);
   }
 }

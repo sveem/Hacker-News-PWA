@@ -1,2 +1,27 @@
 
-<p>Home Works</p>
+<p>TO-DO</p>
+
+<p>1.Selected News: A list with all selected news</p>
+<p>2.Created News: A list with all added news</p>
+<p>3.Created Jobs: A list with all new jobs</p>
+
+<div class="selected-news" *ngIf="selectedNews.length">
+  <h3>Selected News</h3>
+  <ul *ngFor='let news of selectedNews'>
+    <li>{{ news.title }}</li>
+  </ul>
+</div>
+
+<div class="created-news" *ngIf="createdNews.length">
+  <h3>Created News</h3>
+  <ul *ngFor='let news of createdNews'>
+    <li>{{ news.title }}</li>
+  </ul>
+</div>
+
+<div class="created-jobs" *ngIf="createdJobs.length">
+  <h3>Created Jobs</h3>
+  <ul *ngFor='let jobs of createdJobs'>
+    <li>{{ jobs.position + ' (' + jobs.company + ') '}}</li>
+  </ul>
+</div>
