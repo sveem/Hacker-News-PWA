@@ -10,7 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { NewsComponent } from './news/news.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { AboutComponent } from './about/about.component';
-import { AppService } from './app.service';
+import { NewsService } from './news/news.service';
 import { RouterModule, Routes } from '@angular/router';
 
 // Angular Material UI
@@ -20,6 +20,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
 import 'hammerjs';
 
 const appRoutes: Routes = [
@@ -49,9 +51,11 @@ const appRoutes: Routes = [
     MatIconModule,
     MatButtonModule,
     MatExpansionModule,
+    MatInputModule,
+    MatListModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
   ],
-  providers: [AppService],
+  providers: [NewsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

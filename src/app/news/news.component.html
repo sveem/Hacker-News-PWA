@@ -1,3 +1,54 @@
-<p>
-  news works!
-</p>
+<div class="container">
+  <div style="text-align:center">
+    <h1>
+      {{ title }}
+    </h1>
+    <h3 *ngIf="!navigator">
+      {{ status }}
+    </h3>
+  </div>
+
+  <div class="list" *ngIf="allNews.length > 0"> <!-- TO-DO: Test without allNews.length-->
+  <mat-selection-list #news>
+    <div *ngFor="let news of allNews">
+    <mat-list-option  [selected]="news.selected" (click)="markNews(news)">
+      {{ news.title }}
+    </mat-list-option>
+    </div>
+  </mat-selection-list>
+  <p>
+    News selected: {{news.selectedOptions.selected.length}}
+  </p>
+</div>
+
+  <div class="button-row">
+    <button mat-raised-button color="primary"
+       [disabled]="!navigator" (click)="fetchTopNews()">
+       {{ navigator ? 'Fetch News' : 'You\'re Offline'}}
+     </button>
+    <button mat-raised-button color="accent">Create News</button>
+  </div>
+</div>
+
+
+<!--<div class="container">
+  <div style="text-align:center">
+    <h1>
+      {{ title }}
+    </h1>
+    <h3 *ngIf="!navigator">
+      {{ status }}
+    </h3>
+  </div>
+  <!--<div *ngIf="allNews.length">-->
+<!--<ul *ngFor="let news of allNews">
+  <li>
+    {{news.title}}
+  </li>
+</ul>
+<!--</div>-->
+<!--<div class="button-row">
+  <button mat-raised-button color="primary" (click)="fetchTopNews()">Fetch News</button>
+  <button mat-raised-button color="accent">Create News</button>
+</div>
+</div>-->

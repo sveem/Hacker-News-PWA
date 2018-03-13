@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -8,36 +7,10 @@ import { AppService } from './app.service';
 })
 
 export class AppComponent implements OnInit {
-  title: String = 'Hacker News PWA';
-  status: String = 'Current Status: Online'
-  navigator: Boolean = window.navigator.onLine;
-  allNews: any[] = [];
+  constructor() {}
 
-  constructor(private appService: AppService) { }
+  ngOnInit() {}
 
-  ngOnInit() {
-    if (!navigator.onLine) {
-      this.status = 'Current Status: Offline'
-    }
-  console.log('Local Storage', localStorage['newsId']);
-    if (localStorage['newsId']) {
-      console.log('Local Storage on Init', localStorage);
-      this.allNews = JSON.parse(localStorage['newsId']); 
-      console.log('allNews = LocalStorage[newsId]', this.allNews);  
-    }
-    console.log(this.fetchTopNews());
-    this.fetchTopNews();
-  }
-
-  fetchTopNews() {
-    this.appService.fetchNews()
-      .subscribe(news => {
-        this.allNews = news['articles'];
-        console.log('newsIds', this.allNews);
-          localStorage['newsId'] = JSON.stringify(this.allNews)
-          console.log('Local Storage', localStorage);
-      });
-  }
 }
 
 
