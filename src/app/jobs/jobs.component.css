@@ -1,7 +1,13 @@
+.mat-card {
+  max-width: 80%;
+  margin: 2em auto;
+  text-align: center;
+}
+
 .jobform {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
+  max-width: 60%;
+  margin: 2em auto;
+  text-align: center;
 }
 
 .form-fields {
@@ -10,4 +16,22 @@
 
 .submitButton {
   float: right;
+  background-color: #aacc88;
+}
+
+.closeButton {
+  float:left;
+  color: #fff;
+}
+
+.showForm {
+  text-align: left;    
+}
+
+.title {
+  flex-basis: 0;
+}
+.company {
+  /*flex-basis: 100%;*/
+  flex-grow: 1
 }

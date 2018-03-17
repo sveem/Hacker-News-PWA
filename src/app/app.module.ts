@@ -23,6 +23,7 @@ import { MatButtonModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 import 'hammerjs';
 
 
@@ -48,7 +49,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, { useHash: true }), // TO-DO: Remove { useHash: true } before deployment - use express server for all paths
     MatToolbarModule,
     MatMenuModule,
     MatIconModule,
@@ -56,6 +57,7 @@ const appRoutes: Routes = [
     MatExpansionModule,
     MatInputModule,
     MatListModule,
+    MatCardModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [NewsService],

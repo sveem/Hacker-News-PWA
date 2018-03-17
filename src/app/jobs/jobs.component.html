@@ -1,48 +1,51 @@
-<h1>
-  Y Combinator Jobs</h1>
-<div *ngIf="jobStorage.length">
-  <mat-accordion *ngFor="let job of jobStorage">
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>{{ job.position }}</mat-panel-title>
-        <mat-panel-description>{{ job.company }}</mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>{{ job.description }}</p>
-    </mat-expansion-panel>
-  </mat-accordion>
-</div><br>
-
-<form class="jobform" (ngSubmit)="onJobSubmit(f)" #f="ngForm" *ngIf="showForm">
-  <table class="form-fields" cellspacing="0">
-    <tr>
-      <td>
-        <mat-form-field class="form-fields">
-          <input matInput placeholder="Position" 
-          id="position" 
-          ngModel name="position" required>
-        </mat-form-field>
-      </td>
-      <td>
-        <mat-form-field class="form-fields">
-          <input matInput placeholder="Company" 
-          id="company"
-          ngModel name="company" required>
-        </mat-form-field>
-      </td>
-    </tr>
-  </table>
-  <p>
-    <mat-form-field class="form-fields">
-      <textarea matInput placeholder="Desciption" 
-      id="description"
-      ngModel name="description" required>
-      </textarea>
-    </mat-form-field>
-  </p>
-  <div class="buttons">
-    <button mat-raised-button color="accent" class="submitButton" [disabled]="!f.valid">Submit</button>
-    <button mat-raised-button color="green"  class="closeButton" (click)="showForm = !showForm">Close Form</button>
+<mat-card>
+  <div>
+  <h1>
+    Jobs
+  </h1>
   </div>
-</form><br>
 
-<button mat-raised-button color="primary" (click)="showForm = !showForm">Add New Job</button>
+  <div class="container" *ngIf="jobStorage.length">
+    <div class="inner-container">
+      <mat-accordion *ngFor="let job of jobStorage">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title class="title">{{ job.position }}</mat-panel-title>
+            <mat-panel-description class="company">{{ job.company }}</mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>{{ job.description }}</p>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+  <br>
+
+  <div class="showForm">
+    <button mat-raised-button color="primary" (click)="showForm = !showForm">Add New Job</button>
+  </div>
+
+    <form class="jobform" (ngSubmit)="onJobSubmit(f)" #f="ngForm" *ngIf="showForm">
+      <p>
+      <mat-form-field class="form-fields">
+        <textarea matInput placeholder="Position" id="position" ngModel name="position" required>
+      </textarea>
+      </mat-form-field>
+    </p>
+      <p>
+      <mat-form-field class="form-fields">
+        <textarea matInput placeholder="Company" id="company" ngModel name="company" required>
+      </textarea>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="form-fields">
+        <textarea matInput placeholder="Desciption" id="description" ngModel name="description" required>
+      </textarea>
+      </mat-form-field>
+    </p>
+    <div class="buttons">
+      <button mat-raised-button class="submitButton" [disabled]="!f.valid">Submit</button>
+      <button mat-raised-button color="accent" class="closeButton" (click)="showForm = !showForm">Cancel</button>
+    </div>
+  </form><br>
+</mat-card>

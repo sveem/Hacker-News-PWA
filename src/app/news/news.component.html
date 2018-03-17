@@ -1,7 +1,8 @@
+<mat-card>
 <div class="container">
   <div style="text-align:center">
     <h1>
-      {{ title }}
+      News
     </h1>
     <h3 *ngIf="!navigator">
       {{ status }}
@@ -16,7 +17,7 @@
     </mat-list-option>
     </div>
   </mat-selection-list>
-  <p>
+  <p class="selected-news">
     News selected: {{news.selectedOptions.selected.length}}
   </p>
 </div>
@@ -55,7 +56,7 @@
   class="closeButton" (click)="showNews = !showNews">Close Form</button>
   </div>
 </form><br>
-  <div class="button-row">
+  <div class="buttons-row">
     <button mat-raised-button color="primary"
        [disabled]="!navigator" (click)="fetchTopNews()">
        {{ navigator ? 'Fetch News' : 'You\'re Offline'}}
@@ -63,4 +64,5 @@
     <button mat-raised-button color="accent" (click)="showNews = !showNews">Create News</button>
   </div>
 </div>
+</mat-card>
 

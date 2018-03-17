@@ -8,7 +8,7 @@ import { NewsService } from './news.service';
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
-  title: String = 'Hacker News PWA';
+  // title: String = 'News';
   status: String = 'Current Status: Online'
   navigator: Boolean = navigator.onLine;
   showNews: Boolean = false;
