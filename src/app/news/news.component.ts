@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NewsService } from './news.service';
+import { MatDialog } from '@angular/material';
+import { AddNewsDialogComponent } from './add-news-dialog/add-news-dialog.component';
 
 @Component({
   selector: 'app-news',
@@ -14,7 +16,9 @@ export class NewsComponent implements OnInit {
   showNews: Boolean = false;
   allNews: any[] = [];
 
-  constructor(private newsService: NewsService) { }
+  constructor(
+    private newsService: NewsService,
+    private dialog: MatDialog ) { }
 
   ngOnInit() {
     if (!navigator.onLine) {
@@ -47,13 +51,23 @@ export class NewsComponent implements OnInit {
     }))
   }
 
-  onSubmitNews(form: NgForm) {
-    const formData = form.value;
-    formData['selected'] = false;
-    const fetchedNews = JSON.parse(localStorage['newsId']);
-    fetchedNews.push(formData);
-    localStorage['newsId'] = JSON.stringify(fetchedNews);
-    form.reset();
-    console.log('Local Storage', localStorage['newsId']);
+  openAddNewsDialog(): void {
+    let dialogRef = this.dialog.open(AddNewsDialogComponent, {
+      width: '450px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('This dialog was closed', result);
+    })
   }
+
+  // onSubmitNews(form: NgForm) {
+  //   const formData = form.value;
+  //   formData['selected'] = false;
+  //   const fetchedNews = JSON.parse(localStorage['newsId']);
+  //   fetchedNews.push(formData);
+  //   localStorage['newsId'] = JSON.stringify(fetchedNews);
+  //   form.reset();
+  //   console.log('Local Storage', localStorage['newsId']);
+  // }
 }

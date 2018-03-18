@@ -14,6 +14,8 @@ import { HomeComponent } from './home/home.component';
 import { NewsComponent } from './news/news.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { AboutComponent } from './about/about.component';
+import { AddJobDialogComponent } from './jobs/add-job-dialog/add-job-dialog.component';
+import { AddNewsDialogComponent } from './news/add-news-dialog/add-news-dialog.component';
 import { NewsService } from './news/news.service';
 
 // Angular Material UI
@@ -44,6 +46,8 @@ const appRoutes: Routes = [
     NewsComponent,
     JobsComponent,
     AboutComponent,
+    AddJobDialogComponent,
+    AddNewsDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +67,7 @@ const appRoutes: Routes = [
     // MatCardModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
   ],
+  entryComponents: [AddJobDialogComponent, AddNewsDialogComponent],
   providers: [NewsService],
   bootstrap: [AppComponent]
 })

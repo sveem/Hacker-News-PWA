@@ -1,0 +1,64 @@
+<!--<form class="newsform" (ngSubmit)="onSubmitNews(f)" #f="ngForm">
+  <table class="form-fields" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="form-fields">
+          <input matInput placeholder="Title" 
+          id="title" 
+          ngModel name="title" required>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="form-fields">
+          <input matInput placeholder="Author" 
+          id="author"
+          ngModel name="author" required>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <p>
+    <mat-form-field class="form-fields">
+      <textarea matInput placeholder="Desciption" 
+      id="description"
+      ngModel name="description" required>
+      </textarea>
+    </mat-form-field>
+  </p>
+  <div class="buttons">
+  <button mat-raised-button color="accent" 
+  class="submitButton" [disabled]="!f.valid">Submit</button>
+   <button mat-raised-button color="grey" 
+  class="closeButton" (click)="showNews = !showNews">Close Form</button>
+  </div>
+</form>-->
+
+
+<h2 mat-dialog-title>Add News</h2>
+<mat-dialog-content>
+    <form class="form-container" (ngSubmit)="onSubmitNews(f)" #f="ngForm">
+        <mat-form-field class="form-fields">
+          <textarea matInput placeholder="Title" id="title" ngModel name="title" required>
+      </textarea>
+        </mat-form-field>
+
+        <mat-form-field class="form-fields">
+          <textarea matInput placeholder="Author" id="author" ngModel name="author" required>
+      </textarea>
+        </mat-form-field>
+
+        <mat-form-field class="form-fields">
+          <textarea matInput placeholder="Desciption" id="description" ngModel name="description" required>
+      </textarea>
+        </mat-form-field>
+
+      <mat-dialog-actions>
+        <button mat-button class="submitButton" 
+        type="submit" color="primary" [disabled]="!f.valid">
+    <mat-icon>save</mat-icon> Submit </button>
+        <button mat-button 
+        type="button" color="primary" (click)="closeDialog()">
+    <mat-icon>cancel</mat-icon> Cancel </button>
+      </mat-dialog-actions>
+    </form>
+</mat-dialog-content>

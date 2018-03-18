@@ -22,7 +22,7 @@
   </p>
 </div>
 
-<form class="newsform" (ngSubmit)="onSubmitNews(f)" #f="ngForm" *ngIf="showNews">
+<!--<form class="newsform" (ngSubmit)="onSubmitNews(f)" #f="ngForm" *ngIf="showNews">
   <table class="form-fields" cellspacing="0">
     <tr>
       <td>
@@ -55,13 +55,13 @@
    <button mat-raised-button color="grey" 
   class="closeButton" (click)="showNews = !showNews">Close Form</button>
   </div>
-</form><br>
+</form><br>-->
   <div class="buttons-row">
     <button mat-raised-button color="primary"
        [disabled]="!navigator" (click)="fetchTopNews()">
        {{ navigator ? 'Fetch News' : 'You\'re Offline'}}
      </button>
-    <button mat-raised-button color="accent" (click)="showNews = !showNews">Create News</button>
+    <button mat-raised-button color="accent" (click)="openAddNewsDialog()">Create News</button>
   </div>
 </div>
 </mat-card>

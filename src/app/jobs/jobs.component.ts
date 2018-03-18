@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { JobsService } from './jobs.service';
+import { MatDialog } from '@angular/material';
+import { AddJobDialogComponent } from './add-job-dialog/add-job-dialog.component';
 
 @Component({
   selector: 'app-jobs',
@@ -13,7 +15,9 @@ export class JobsComponent implements OnInit {
   jobStorage: any[] = [];
   showForm: Boolean = false;
 
-  constructor(private jobsService: JobsService) {
+  constructor(
+    private jobsService: JobsService, 
+    private dialog: MatDialog ) {
     this.jobStorage = this.jobsService.allJobs;
   }
 
@@ -21,16 +25,16 @@ export class JobsComponent implements OnInit {
     localStorage['jobs'] ?
       this.jobStorage = JSON.parse(localStorage['jobs'])
       : localStorage['jobs'] = JSON.stringify(this.jobStorage);
-      console.log('On Init', localStorage['jobs'])
-    }
+    console.log('On Init', localStorage['jobs'])
+  }
 
-  onJobSubmit(form: NgForm) {
-    console.log('Submitted', form)
-    const formData = form.value;
-    const allJobs = JSON.parse(localStorage['jobs']);
-    allJobs.push(formData);
-    localStorage['jobs'] = JSON.stringify(allJobs);
-    form.reset();
-    console.log('Local Storage', localStorage['jobs']);
+  openAddJobDialog(): void {
+    let dialogRef = this.dialog.open(AddJobDialogComponent, {
+      width: '450px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('This dialog was closed', result);
+    })
   }
 }

@@ -4,7 +4,25 @@
   text-align: center;
 }
 
-.jobform {
+.showForm {
+  text-align: left;    
+  margin-top: 15px;
+}
+
+.title {
+  flex-basis: 0;
+}
+
+.company {
+  /*flex-basis: 100%;*/
+  flex-grow: 1
+}
+
+.description {
+  text-align: justify;
+}
+
+/*.jobform {
   max-width: 60%;
   margin: 2em auto;
   text-align: center;
@@ -22,16 +40,5 @@
 .closeButton {
   float:left;
   color: #fff;
-}
+}*/
 
-.showForm {
-  text-align: left;    
-}
-
-.title {
-  flex-basis: 0;
-}
-.company {
-  /*flex-basis: 100%;*/
-  flex-grow: 1
-}
