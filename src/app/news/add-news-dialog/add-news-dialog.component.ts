@@ -15,12 +15,12 @@ export class AddNewsDialogComponent implements OnInit {
 
   onSubmitNews(form: NgForm): void {
     const formData = form.value;
-    formData['selected'] = false;
     const fetchedNews = JSON.parse(localStorage['newsId']);
+    formData['selected'] = false;
     fetchedNews.push(formData);
+
     localStorage['newsId'] = JSON.stringify(fetchedNews);
     form.reset();
-    console.log('Local Storage', localStorage['newsId']);
     this.closeDialog();
   }
 

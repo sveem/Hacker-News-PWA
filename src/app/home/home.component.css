@@ -1,0 +1,21 @@
+.container-wrapper {
+  max-width: 80%;
+  margin: 1em auto;
+  text-align: center;
+}
+
+.mat-card {
+  max-width: 80%;
+  margin: 2em auto;
+  text-align: center;
+}
+
+.container {
+  display: flex; 
+  flex-direction: column-reverse; 
+}
+
+.selected-news,
+.latest-news {
+  margin-top:-30px;  
+}

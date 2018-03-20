@@ -13,6 +13,3 @@ import 'rxjs/Rx';
     .map(res => res);
   }
 }
-
-// "https://newsapi.org/v2/**"
-// https://newsapi.org/v2/top-headlines?sources=hacker-news&apiKey=6bd90b29cd78473c99ce04b6470c28a3

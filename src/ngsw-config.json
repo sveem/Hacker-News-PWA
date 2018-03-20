@@ -5,6 +5,7 @@
     "installMode": "prefetch",
     "resources": {
       "files": [
+        "/assets/yc500.gif",
         "/assets/favicon.ico",
         "/assets/manifest.json",
         "/index.html"

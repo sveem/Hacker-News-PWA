@@ -1,68 +1,27 @@
 <mat-card>
-<div class="container">
-  <div style="text-align:center">
-    <h1>
-      News
-    </h1>
-    <h3 *ngIf="!navigator">
-      {{ status }}
-    </h3>
-  </div>
-
-  <div class="list" *ngIf="allNews.length">
-  <mat-selection-list #news>
-    <div *ngFor="let news of allNews">
-    <mat-list-option  [selected]="news.selected" (click)="markNews(news)">
-      {{ news.title }}
-    </mat-list-option>
+  <div class="container">
+    <div style="text-align:center">
+      <h1>
+        News
+      </h1>
     </div>
-  </mat-selection-list>
-  <p class="selected-news">
-    News selected: {{news.selectedOptions.selected.length}}
-  </p>
-</div>
-
-<!--<form class="newsform" (ngSubmit)="onSubmitNews(f)" #f="ngForm" *ngIf="showNews">
-  <table class="form-fields" cellspacing="0">
-    <tr>
-      <td>
-        <mat-form-field class="form-fields">
-          <input matInput placeholder="Title" 
-          id="title" 
-          ngModel name="title" required>
-        </mat-form-field>
-      </td>
-      <td>
-        <mat-form-field class="form-fields">
-          <input matInput placeholder="Author" 
-          id="author"
-          ngModel name="author" required>
-        </mat-form-field>
-      </td>
-    </tr>
-  </table>
-  <p>
-    <mat-form-field class="form-fields">
-      <textarea matInput placeholder="Desciption" 
-      id="description"
-      ngModel name="description" required>
-      </textarea>
-    </mat-form-field>
-  </p>
-  <div class="buttons">
-  <button mat-raised-button color="accent" 
-  class="submitButton" [disabled]="!f.valid">Submit</button>
-   <button mat-raised-button color="grey" 
-  class="closeButton" (click)="showNews = !showNews">Close Form</button>
-  </div>
-</form><br>-->
-  <div class="buttons-row">
-    <button mat-raised-button color="primary"
-       [disabled]="!navigator" (click)="fetchTopNews()">
-       {{ navigator ? 'Fetch News' : 'You\'re Offline'}}
+    <div class="list" *ngIf="allNews.length">
+      <mat-selection-list #news>
+        <div *ngFor="let news of allNews">
+          <mat-list-option [selected]="news.selected" (click)="markNews(news)">
+            {{ news.title }}
+          </mat-list-option>
+        </div>
+      </mat-selection-list>
+      <p class="selected-news">
+        News selected: {{news.selectedOptions.selected.length}}
+      </p>
+    </div>
+    <div class="buttons-row">
+      <button mat-raised-button color="primary" [disabled]="!navigator" (click)="fetchTopNews()">
+       {{ navigator ? 'Refresh News' : 'You\'re Offline'}}
      </button>
-    <button mat-raised-button color="accent" (click)="openAddNewsDialog()">Create News</button>
+      <button mat-raised-button color="accent" (click)="openAddNewsDialog()">Create News</button>
+    </div>
   </div>
-</div>
 </mat-card>
-

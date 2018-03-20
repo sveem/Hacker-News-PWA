@@ -11,18 +11,18 @@ import { AddNewsDialogComponent } from './add-news-dialog/add-news-dialog.compon
 })
 export class NewsComponent implements OnInit {
   // title: String = 'News';
-  status: String = 'Current Status: Online'
+  status: String = 'Current Status: Online';
   navigator: Boolean = navigator.onLine;
   showNews: Boolean = false;
   allNews: any[] = [];
 
   constructor(
     private newsService: NewsService,
-    private dialog: MatDialog ) { }
+    private dialog: MatDialog) { }
 
   ngOnInit() {
     if (!navigator.onLine) {
-      this.status = 'Current Status: Offline'
+      this.status = 'Current Status: Offline';
     }
     if (localStorage['newsId']) {
       this.allNews = JSON.parse(localStorage['newsId']);
@@ -35,8 +35,8 @@ export class NewsComponent implements OnInit {
         this.allNews = news['articles'].map(news => {
           news.selected = false;
           return news;
-        })
-        localStorage['newsId'] = JSON.stringify(this.allNews)
+        });
+        localStorage['newsId'] = JSON.stringify(this.allNews);
       });
   }
 
@@ -48,26 +48,16 @@ export class NewsComponent implements OnInit {
         el.selected = !el.selected;
       }
       return el;
-    }))
+    }));
   }
 
   openAddNewsDialog(): void {
-    let dialogRef = this.dialog.open(AddNewsDialogComponent, {
+    const dialogRef = this.dialog.open(AddNewsDialogComponent, {
       width: '450px'
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('This dialog was closed', result);
-    })
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('This dialog was closed', result);
+  //   })
   }
-
-  // onSubmitNews(form: NgForm) {
-  //   const formData = form.value;
-  //   formData['selected'] = false;
-  //   const fetchedNews = JSON.parse(localStorage['newsId']);
-  //   fetchedNews.push(formData);
-  //   localStorage['newsId'] = JSON.stringify(fetchedNews);
-  //   form.reset();
-  //   console.log('Local Storage', localStorage['newsId']);
-  // }
 }

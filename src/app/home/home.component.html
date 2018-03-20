@@ -1,30 +1,36 @@
-<h1>
-  Dashboard
-</h1>
 
-<p>TO-DO</p>
+<mat-card class="container-wrapper">
+  <div>
+    <h1>
+      Dashboard
+    </h1>
+  </div>
+  <div class="container">
+    <div class="selected-news" *ngIf="selectedNews.length">
+     <mat-card>
+      <h3>Selected News</h3>
+      <div *ngFor='let news of selectedNews'>
+        <p>{{ news.title }}</p>
+      </div>
+    </mat-card>
+    </div>
+ 
+    <div class="latest-news" *ngIf="createdNews.length">
+      <mat-card>
+      <h3>Latest News</h3>
+      <div *ngFor='let news of createdNews'>
+        <p>{{ news.title }}</p>
+      </div>
+      </mat-card>
+    </div>
 
-<p>1.Selected News: A list with all selected news</p>
-<p>2.Created News: A list with all added news</p>
-<p>3.Created Jobs: A list with all new jobs</p>
-
-<div class="selected-news" *ngIf="selectedNews.length">
-  <h3>Selected News</h3>
-  <ul *ngFor='let news of selectedNews'>
-    <li>{{ news.title }}</li>
-  </ul>
-</div>
-
-<div class="created-news" *ngIf="createdNews.length">
-  <h3>Created News</h3>
-  <ul *ngFor='let news of createdNews'>
-    <li>{{ news.title }}</li>
-  </ul>
-</div>
-
-<div class="created-jobs" *ngIf="createdJobs.length">
-  <h3>Created Jobs</h3>
-  <ul *ngFor='let jobs of createdJobs'>
-    <li>{{ jobs.position + ' (' + jobs.company + ') '}}</li>
-  </ul>
-</div>
+    <div class="new-jobs" *ngIf="createdJobs.length">
+      <mat-card>
+      <h3>New Jobs</h3>
+      <div *ngFor='let jobs of createdJobs'>
+        <p>{{ jobs.position + ' (' + jobs.company + ') '}}</p>
+      </div>
+      </mat-card>
+    </div>
+  </div>
+</mat-card>

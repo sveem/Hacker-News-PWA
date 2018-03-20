@@ -8,7 +8,7 @@ import { MatDialogRef } from '@angular/material';
   styleUrls: ['./add-job-dialog.component.css']
 })
 export class AddJobDialogComponent implements OnInit {
-  constructor( private dialogRef : MatDialogRef<AddJobDialogComponent> ) { }
+  constructor( private dialogRef: MatDialogRef<AddJobDialogComponent> ) { }
 
   ngOnInit() { }
 
