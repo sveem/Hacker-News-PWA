@@ -7,7 +7,7 @@ export class JobsService {
       },
       {
         "position": "Project Manager",
-        "company": "Oliver Wyman",
+        "company": "Facebook",
         "description": "Some example data"
       },
       {

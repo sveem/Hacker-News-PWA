@@ -9,7 +9,10 @@
       <mat-selection-list #news>
         <div *ngFor="let news of allNews">
           <mat-list-option [selected]="news.selected" (click)="markNews(news)">
-            {{ news.title }}
+            <h4 mat-line>{{ news.title }} </h4>
+            <p mat-line>published by {{ news.author || 'n/a'}} 
+              | {{ timeToNow(news.publishedAt) }} | web
+            </p>
           </mat-list-option>
         </div>
       </mat-selection-list>

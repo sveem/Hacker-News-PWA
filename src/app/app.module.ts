@@ -21,15 +21,6 @@ import { NewsService } from './news/news.service';
 // Angular Material UI
 import { MaterialModule } from './shared/material.module';
 
-// import { MatToolbarModule } from '@angular/material/toolbar';
-// import { MatMenuModule } from '@angular/material/menu';
-// import { MatIconModule } from '@angular/material/icon';
-// import { MatButtonModule } from '@angular/material';
-// import { MatExpansionModule } from '@angular/material/expansion';
-// import { MatInputModule } from '@angular/material/input';
-// import { MatListModule } from '@angular/material/list';
-// import { MatCardModule } from '@angular/material/card';
-
 const appRoutes: Routes = [
   { path: '', component: NavbarComponent, children: [
     { path: '', component: HomeComponent },
@@ -55,16 +46,7 @@ const appRoutes: Routes = [
     MaterialModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes, { useHash: true }), // TO-DO: Remove { useHash: true } before deployment - use express server for all paths
-
-    // MatToolbarModule,
-    // MatMenuModule,
-    // MatIconModule,
-    // MatButtonModule,
-    // MatExpansionModule,
-    // MatInputModule,
-    // MatListModule,
-    // MatCardModule,
+    RouterModule.forRoot(appRoutes, { useHash: true }),
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
   ],
   entryComponents: [AddJobDialogComponent, AddNewsDialogComponent],
@@ -72,5 +54,3 @@ const appRoutes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-// To-Do: Create separate Ng file

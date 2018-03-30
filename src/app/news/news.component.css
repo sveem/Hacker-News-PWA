@@ -7,6 +7,7 @@
 .list {
   text-align: left;  
 }
+
 .newsform {
   min-width: 150px;
   max-width: 500px;
@@ -20,6 +21,7 @@
 .selected-news {
   padding: 0px 16px;
 }
+
 .submitButton {
   float: right;  
 }

@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { NewsService } from './news.service';
 import { MatDialog } from '@angular/material';
 import { AddNewsDialogComponent } from './add-news-dialog/add-news-dialog.component';
+import * as moment from 'moment'
 
 @Component({
   selector: 'app-news',
@@ -10,7 +11,6 @@ import { AddNewsDialogComponent } from './add-news-dialog/add-news-dialog.compon
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
-  // title: String = 'News';
   status: String = 'Current Status: Online';
   navigator: Boolean = navigator.onLine;
   showNews: Boolean = false;
@@ -21,9 +21,6 @@ export class NewsComponent implements OnInit {
     private dialog: MatDialog) { }
 
   ngOnInit() {
-    if (!navigator.onLine) {
-      this.status = 'Current Status: Offline';
-    }
     if (localStorage['newsId']) {
       this.allNews = JSON.parse(localStorage['newsId']);
     }
@@ -44,9 +41,7 @@ export class NewsComponent implements OnInit {
     const title = news.title;
     const newsCopy = this.allNews;
     localStorage['newsId'] = JSON.stringify(newsCopy.map(el => {
-      if (el.title === title) {
-        el.selected = !el.selected;
-      }
+      if (el.title === title) { el.selected = !el.selected; }
       return el;
     }));
   }
@@ -55,9 +50,11 @@ export class NewsComponent implements OnInit {
     const dialogRef = this.dialog.open(AddNewsDialogComponent, {
       width: '450px'
     });
+  }
 
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('This dialog was closed', result);
-  //   })
+  timeToNow(date: Date) {
+    const timeNow = moment.now();
+    const timeBefore = moment(date);
+    return timeBefore.from(timeNow);
   }
 }

@@ -30,9 +30,5 @@ export class JobsComponent implements OnInit {
     const dialogRef = this.dialog.open(AddJobDialogComponent, {
       width: '450px'
     });
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('This dialog was closed', result);
-    // });
   }
 }
