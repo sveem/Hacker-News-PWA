@@ -15,8 +15,8 @@ Run the app
 ng build --prod
 cd dist
 http-server -p 8080
-
-Workflow  
+```
+### Workflow
 ```
 Open Chrome and visit localhost:8080
 Refresh all news 
@@ -25,3 +25,4 @@ Add new jobs, create & select news
 Close the browser
 Go Online and open Chrome 
 Visit localhost: 8080
+```
